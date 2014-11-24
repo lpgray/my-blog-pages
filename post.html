@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章详情</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	
+	<!-- 主导航 -->
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">ZhangYang's Blog</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#">首页</a></li>
+	        <li><a href="#">HTML5</a></li>
+	        <li><a href="#">Node.js</a></li>
+	        <li><a href="#">生活杂记</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-- /主导航 -->
+	
+	<!-- 主显示区 -->
+	<div class="container container-fluid">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="mb-article">
+				<!-- 文章详情 -->
+				前端开发，尤其是页面开发的过程总是：修改代码 -- 切浏览器 -- F5刷新......如此循环往复，本文将介绍如何借助grunt来实现监控代码修改并实时刷新页面，让我们解放双手，提高前端开发工作效率。<p><img src="http://lpgray-media.stor.sinaapp.com/c97cae28-7871-11e3-9a6b-411138acd2c6.png"></p><p><b>关于grunt</b></p><p>grunt是基于node npm的一款JavaScript任务自动化工具，它包含很多便捷的插件可以进行自动化的前端任务，比如：代码合并、压缩；代码质量检查；编译less，sass，CoffeeScript等。本文对node及grunt本身的安装不多赘述，详细教程请参考<a href="//gruntjs.com">grunt官方网站</a>，或者使用搜索引擎自行查找。</p><p><b style="line-height: 1.6em;">必备插件</b><br></p><p></p><ul><li><span style="line-height: 22.390625px;">grunt-contrib-watch (&nbsp;<a href="https://github.com/gruntjs/grunt-contrib-watch">https://github.com/gruntjs/grunt-contrib-watch</a>&nbsp;)&nbsp;</span><span style="line-height: 22.390625px;">这个插件来监控文件改变，它通常用来进行监控文件改变进行同时特定任务，不过在本案例中不介绍这个特性。在新版的 watch 插件中已经将 livereload 特性添加了进去，取代了grunt-contrib-livereload 这个插件，实际上仅仅使用 watch 插件然后自己启动一个本地的 http 服务器，同时将 livereload.js 脚本手动引入html文件，已经可以实现 livereload 了，这就是为什么除了watch插件外，下面两个插件是非必备的原因，不过采用此种方法会污染源代码，为什么会污染，下文会告诉你。</span></li></ul><span style="line-height: 20px;"><b>非必备插件</b><br></span><ul><li><span style="line-height: 22.390625px;">grunt-contrib-connect (&nbsp;<a href="https://github.com/gruntjs/grunt-contrib-connect">https://github.com/gruntjs/grunt-contrib-connect</a>&nbsp;) 这个插件其实就可以理解为一个轻量的本地http服务器。</span></li><li><span style="line-height: 22.390625px;">connect-livereload (&nbsp;<a href="https://github.com/intesso/connect-livereload">https://github.com/intesso/connect-livereload</a>&nbsp;) connect 插件会有依赖该插件的地方，值得一提的是，它是 connect 与 watch-livereload 特性的衔接桥梁，使用了 connect 和它，你就可以不手动在 html 中添加 livereload.js 脚本来实现自动页面刷新。</span></li></ul><p><b>第一步：引入 watch 插件</b></p><p><span style="line-height: 1.6em;"></span></p><pre class="codearea linenums lang-js">grunt.initConfig(
+    watch: {
+      livereload: {
+        options: {livereload: true},
+        files: ['dev/test.js', 'index.html']
+      }
+})
+
+grunt.loadNpmTasks('grunt-contrib-watch');</pre><p></p><p><span style="line-height: 1.6em;">livereload 配置中，files为监控的文件，这些文件改变会触发livereload事件。当在控制台运行 grunt watch 之后，你已经成功开启了 livereload 特性，你可以在浏览器中输入 localhost:35729/ 来查看效果，与此同时，你已经可以开始通过自启动一个web服务器来体验livereload快感了，只不过你需要在你想要实时刷新的界面中引入一段脚本<b>&nbsp;</b></span><span style="line-height: 1.6em;"><b>localhost:35729/lovereload.js </b>，比如在配置中的 index.html 中引入该脚本，你通过一个 apache 服务器访问它，你修改 index.html 或者 test.js 你会看到效果。可正如前面所说，这种开发方式实际上并不好，一个是繁琐，更重要的是污染源代码！</span></p><p><b style="line-height: 1.6em;">为什么只用watch插件及自启动web服务器会污染源代码？</b><br></p><p></p><p>当我们仅仅使用watch的 livereload 特性的时候，我们必须手动添加一个 script 脚本至我们想要自动刷新的html代码中，该脚本位于watch启动的livereload服务器的根目录下，通常为 localhost:35729/lovereload.js。但是结合下面的两个插件，我们就无需给任何html进行脚本添加，所有的脚本注入工作都由那两个插件结合完成，这样的意义是，你所写的代码都是干净纯粹不需要上线前进行任何清理的。</p><p></p><p><b><br></b></p><p><b>第二步：引入 connect 与 connect-livereload 插件</b></p><p></p><pre class="codearea linenums lang-js">grunt.initConfig(
+    connect: {
+      server:{
+        options : {
+          port : 1377,
+          debug : true,
+          livereload : true
+        }
+      }
+    }
+})
+
+grunt.loadNpmTasks('grunt-contrib-connect');
+// 不需要显式 load connect-livereload 插件，它只是 connect 插件的依赖，但是你必须使用 npm 安装它</pre><p></p><p>ok，在配置完 connect 之后，你需要将 watch 与 connect 结合起来，成一组任务，然后通过控制台启动该组任务。</p><p></p><p></p><pre class="codearea linenums lang-js">grunt.registerTask('dev', ['connect', 'watch']);</pre><p></p><p><b>注意</b>（为什么？ 请阅读&nbsp;<a href="https://github.com/gruntjs/grunt-contrib-watch/issues/111" style="line-height: 1.6em;">https://github.com/gruntjs/grunt-contrib-watch/issues/111</a><span style="line-height: 1.6em;">）：</span></p><p></p><ul><li><span style="line-height: 1.6em;">connect一定要在前面</span><br></li><li><span style="line-height: 1.6em;">connect配置有一个选项为 keepalive ，这个参数必须为 false</span></li></ul><p>通过在控制台键入 grunt dev，如果成功你会看到如下提示信息：</p><p></p><p><img src="http://lpgray-media.stor.sinaapp.com/c95bd34c-7871-11e3-8458-411138acd2c6.jpg"></p><p>此时你已经有了一个极其强大的 localhost 1377 服务器来进行本地前端开发，它可以 livereload。</p><p><br></p><p>也许上面的介绍晦涩难懂，没关系，在我的github中，你可以找到 demo 代码，地址是这里：</p><p><a href="https://github.com/lpgray/my-common/tree/master/showcase/grunt/livereload" style="line-height: 1.6em;">https://github.com/lpgray/my-common/tree/master/showcase/grunt/livereload</a></p><p>在下载完之后，不要忘记npm install.</p>
+</div>
+				<p class="mb-article-infos">
+					<span><i class="glyphicon glyphicon-time"></i> Sunday, September 05, 2014</span>
+					<span><i class="glyphicon glyphicon-user"></i> <a href="#">Zhang Yang</a></span>
+					<span><i class="glyphicon glyphicon-tags"></i> <a href="#">生活</a> <a href="#">吐槽</a></span>
+				</p>
+				<!-- /文章详情 -->
+			</div>
+			<div class="col-md-4">
+				<!--个人信息-->
+ 				<div role="tabpanel">
+ 					<ul class="nav nav-tabs" role="tablist">
+ 						<li role="presentation" class="active">
+ 							<a href="#mb-weibo" aria-control="mb-weibo" role="tab" data-toggle="tab">微博</a>
+ 						</li>
+ 						<li role="presentation">
+ 							<a href="#mb-github" aria-control="mb-github" role="tab" data-toggle="tab">Github</a>
+ 						</li>
+ 					</ul>
+ 					<div class="tab-content mb-tab-content">
+ 						<div role="tabpanel" class="tab-pane active" id="mb-weibo">
+ 							<a href="http://weibo.com/u/2381479703?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/2381479703/6463fd65/1.png"/></a>
+ 						</div>
+ 						<div role="tabpanel" class="tab-pane" id="mb-github">
+ 							<iframe width="100%" src="http://lab.lepture.com/github-cards/cards/default.html?user=lpgray&identity=ghcard-lpgray-3&client_id=a11a1bda412d928fb39a&client_secret=92b7cf30bc42c49d589a10372c3f9ff3bb310037" frameborder="0"></iframe>
+ 						</div>
+ 					</div>
+ 				</div>
+				<!--/个人信息-->
+
+				<!-- 文章标签 -->
+				<h4>标签集</h4>
+				<div>
+					<a class="label label-default">HTML5</a>
+					<a class="label label-default">生活</a>
+					<a class="label label-default">Node.js</a>
+					<a class="label label-default">HTML5 Game</a>
+				</div>
+				<!-- /文章标签 -->
+			</div>
+		</div>
+	</div>
+	<!-- /主显示区 -->
+
+	<!-- 全局页脚 -->
+	<footer>
+		<div class="container container-fluid text-center">
+			<p>&copy;2014 Zhang Yang. 本博客使用 <a href="https://www.djangoproject.com/" target="_blank">django</a> 开发，运行在<a href="//sae.sinaapp.com.cn" target="_blank">新浪云服务</a>上。</p>
+		</div>
+	</footer>
+	<!-- /全局页脚 -->
+
+
+	<script src="jquery/jquery-1.11.1.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

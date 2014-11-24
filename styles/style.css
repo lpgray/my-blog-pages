@@ -1,4 +1,6 @@
-img{max-width: 100%;margin-bottom: 10px;}
+img{max-width: 100%;}
+
+.mb-article-list img{margin-bottom: 10px;}
 .mb-article-infos span{display: inline-block; margin-right: 10px;}
 .mb-article-infos span i{margin-right: 5px;}
 
@@ -6,5 +8,7 @@ img{max-width: 100%;margin-bottom: 10px;}
 .mb-pagin a{display: inline-block;height: 46px;width: 46px;line-height: 46px;font-size: 1.4em;color: #fff;
 background: #ccc;text-align: center;margin-left: 5px;}
 .mb-pagin a:hover{background: #bbb}
+
+.mb-tab-content{padding: 5px;border: 1px solid #ccc;border-top: none;}
 
 footer{padding: 20px 0; border-top: 1px solid #eee; margin-top: 20px;}

@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap.css">
 
 	<link rel="stylesheet" href="styles/style.css">
 </head>
@@ -14,7 +14,7 @@
 	
 	<!-- 主导航 -->
 	<nav class="navbar navbar-default" role="navigation">
-	  <div class="container-fluid">
+	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -29,7 +29,7 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">首页</a></li>
+	        <li class="active"><a href="#">首页</a></li>
 	        <li><a href="#">HTML5</a></li>
 	        <li><a href="#">Node.js</a></li>
 	        <li><a href="#">生活杂记</a></li>
@@ -40,16 +40,17 @@
 	<!-- /主导航 -->
 	
 	<!-- 主显示区 -->
-	<div class="container container-fluid">
+	<div class="mb-main">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
 				<!-- 文章列表 -->
 				<ul class="nav mb-article-list">
 					<li>
-						<h3><a href="#">又一个个人成就</a></h3>
+						<h2><a href="post.html">又一个个人成就</a></h2>
 						<div class="row">
 							<div class="col-md-4">
-								<img src="images/test.jpg" alt="" class="img-rounded">
+								<img src="images/test.jpg" alt="">
 							</div>
 							<div class="col-md-8">
 								<p>一个月以前，舌头下起了一个气泡，本以为是口腔溃疡所致，就没重视。现在，诊断为舍下腺囊肿......好久没更新博客了，这次更新也不是技术文章，惭愧惭愧。马上就要进入手术室，摘除右侧舍下腺，医生说是全麻手术，昨天签了好几个单据，医生说了无数的可能风险，对于从来没生过大病的我，见到如此阵仗还是有点小紧张</p>
@@ -65,74 +66,12 @@
 						</p>
 					</li>
 					<li>
-						<h3><a href="#">又一个个人成就</a></h3>
-						<div class="row">
-							<div class="col-md-4">
-								<img src="images/test.jpg" alt="" class="img-rounded">
-							</div>
-							<div class="col-md-8">
+						<h2><a href="post.html">grunt之livereload解放前端开发，不知不觉提升开发效率</a></h2>
+							
 								<p>一个月以前，舌头下起了一个气泡，本以为是口腔溃疡所致，就没重视。现在，诊断为舍下腺囊肿......好久没更新博客了，这次更新也不是技术文章，惭愧惭愧。马上就要进入手术室，摘除右侧舍下腺，医生说是全麻手术，昨天签了好几个单据，医生说了无数的可能风险，对于从来没生过大病的我，见到如此阵仗还是有点小紧张</p>
 								<div class="text-right">
 									<a href="#">View more</a>
 								</div>
-							</div>
-						</div>
-						<p class="mb-article-infos">
-							<span><i class="glyphicon glyphicon-time"></i> Sunday, September 05, 2014</span>
-							<span><i class="glyphicon glyphicon-user"></i> <a href="#">Zhang Yang</a></span>
-							<span><i class="glyphicon glyphicon-tags"></i> <a href="#">生活</a> <a href="#">吐槽</a></span>
-						</p>
-					</li>
-					<li>
-						<h3><a href="#">又一个个人成就</a></h3>
-						<div class="row">
-							<div class="col-md-4">
-								<img src="images/test.jpg" alt="" class="img-rounded">
-							</div>
-							<div class="col-md-8">
-								<p>一个月以前，舌头下起了一个气泡，本以为是口腔溃疡所致，就没重视。现在，诊断为舍下腺囊肿......好久没更新博客了，这次更新也不是技术文章，惭愧惭愧。马上就要进入手术室，摘除右侧舍下腺，医生说是全麻手术，昨天签了好几个单据，医生说了无数的可能风险，对于从来没生过大病的我，见到如此阵仗还是有点小紧张</p>
-								<div class="text-right">
-									<a href="#">View more</a>
-								</div>
-							</div>
-						</div>
-						<p class="mb-article-infos">
-							<span><i class="glyphicon glyphicon-time"></i> Sunday, September 05, 2014</span>
-							<span><i class="glyphicon glyphicon-user"></i> <a href="#">Zhang Yang</a></span>
-							<span><i class="glyphicon glyphicon-tags"></i> <a href="#">生活</a> <a href="#">吐槽</a></span>
-						</p>
-					</li>
-					<li>
-						<h3><a href="#">又一个个人成就</a></h3>
-						<div class="row">
-							<div class="col-md-4">
-								<img src="images/test.jpg" alt="" class="img-rounded">
-							</div>
-							<div class="col-md-8">
-								<p>一个月以前，舌头下起了一个气泡，本以为是口腔溃疡所致，就没重视。现在，诊断为舍下腺囊肿......好久没更新博客了，这次更新也不是技术文章，惭愧惭愧。马上就要进入手术室，摘除右侧舍下腺，医生说是全麻手术，昨天签了好几个单据，医生说了无数的可能风险，对于从来没生过大病的我，见到如此阵仗还是有点小紧张</p>
-								<div class="text-right">
-									<a href="#">View more</a>
-								</div>
-							</div>
-						</div>
-						<p class="mb-article-infos">
-							<span><i class="glyphicon glyphicon-time"></i> Sunday, September 05, 2014</span>
-							<span><i class="glyphicon glyphicon-user"></i> <a href="#">Zhang Yang</a></span>
-							<span><i class="glyphicon glyphicon-tags"></i> <a href="#">生活</a> <a href="#">吐槽</a></span>
-						</p>
-					</li><li>
-						<h3><a href="#">又一个个人成就</a></h3>
-						<div class="row">
-							<div class="col-md-4">
-								<img src="images/test.jpg" alt="" class="img-rounded">
-							</div>
-							<div class="col-md-8">
-								<p>一个月以前，舌头下起了一个气泡，本以为是口腔溃疡所致，就没重视。现在，诊断为舍下腺囊肿......好久没更新博客了，这次更新也不是技术文章，惭愧惭愧。马上就要进入手术室，摘除右侧舍下腺，医生说是全麻手术，昨天签了好几个单据，医生说了无数的可能风险，对于从来没生过大病的我，见到如此阵仗还是有点小紧张</p>
-								<div class="text-right">
-									<a href="#">View more</a>
-								</div>
-							</div>
-						</div>
 						<p class="mb-article-infos">
 							<span><i class="glyphicon glyphicon-time"></i> Sunday, September 05, 2014</span>
 							<span><i class="glyphicon glyphicon-user"></i> <a href="#">Zhang Yang</a></span>
@@ -181,7 +120,9 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	<!-- /主显示区 -->
+	
 
 	<!-- 全局页脚 -->
 	<footer>

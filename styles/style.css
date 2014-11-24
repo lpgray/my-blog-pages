@@ -11,4 +11,7 @@ background: #ccc;text-align: center;margin-left: 5px;}
 
 .mb-tab-content{padding: 5px;border: 1px solid #ccc;border-top: none;}
 
+.mb-article ul{padding-left: 1.2em}
+.mb-article img{background: #eee;padding: 5px;float: left;width:250px;margin:10px 20px 10px 0;}
+
 footer{padding: 20px 0; border-top: 1px solid #eee; margin-top: 20px;}

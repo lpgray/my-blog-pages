@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/bootstrap-3.3.1/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/highlightjs/default.min.css">
 	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
@@ -45,18 +46,21 @@
 				<div class="col-md-8">
 					<div class="mb-article">
 						<div class="form-group text-right">
-							<div class="btn-group" data-toggle="buttons">
+							<div id="J_modeSwitcher" class="btn-group" data-toggle="buttons">
 								<label class="btn btn-default active">
-									<input type="radio" name="options" id="option1" autocomplete="off" checked> Write
+									<input type="radio" name="options" autocomplete="off" checked> Write
 								</label>
 								<label class="btn btn-default">
-									<input type="radio" name="options" id="option2" autocomplete="off"> Preview
+									<input type="radio" name="options" autocomplete="off"> Preview
 								</label>
 							</div>
 						</div>
-						<form action="">
-							<div class="form-group">
+						<form id="editor-editblock" action="">
+							<!-- <div class="form-group">
 								<input type="text" class="form-control" placeholder="文章标题">
+							</div> -->
+							<div class="form-group">
+								<textarea id="editor-editor" class="form-control" style="height:300px;width:100%;overflow-y:auto;" placeholder="写 Markdown 格式的文章..."></textarea>
 							</div>
 							<div class="form-group">
 								<div class="input-group">
@@ -65,20 +69,17 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<textarea class="form-control" style="height:300px;width:100%;overflow-y:auto;" placeholder="写 Markdown 格式的文章..."></textarea>
-							</div>
-							<div class="form-group">
 								<div class="input-group" style="margin-bottom: 10px;">
 									<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
 									<input type="text" class="form-control" value="Zhang Yang" disabled>
 								</div>
 							</div>
 						</form>
-						<div id="J_articlePreview">
+						<div id="editor-preview">
 							
 						</div>
 						<div class="form-group text-right">
-							<div class="pull-left">
+							<div id="editor-autosave-tips" class="pull-left">
 								<small>Saving draft...</small>
 								<small class="text-success">Success!</small>
 							</div>
@@ -131,7 +132,10 @@
 		</div>
 	</footer>
 
-	<link rel="stylesheet" href="assets/bootstrap-3.3.1/dist/css/bootstrap.css">
-	<link rel="stylesheet" href="styles/style.css">
+	<script src="assets/jquery/jquery-1.11.1.min.js"></script>
+	<script src="assets/bootstrap-3.3.1/dist/js/bootstrap.js"></script>
+	<script src="assets/highlightjs/highlight.min.js"></script>
+	<script src="assets/marked.js"></script>
+	<script src="scripts/editor.js"></script>
 </body>
 </html>

@@ -17,17 +17,17 @@
 	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mb-collapse">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">ZhangYang's Blog</a>
+	      <a class="navbar-brand" href="#"><img class="mb-avatar img-circle" src="images/avatar.jpg" alt=""> ZhangYang's Blog</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <div class="collapse navbar-collapse" id="mb-collapse" aria-expanded="false" style="height:1px">
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="active"><a href="#">首页</a></li>
 	        <li><a href="#">HTML5</a></li>
@@ -88,7 +88,7 @@
 			</div>
 			<div class="col-md-4">
 				<!--个人信息-->
- 				<div role="tabpanel">
+ 				<div role="tabpanel" class="mb-tab-panel">
  					<ul class="nav nav-tabs" role="tablist">
  						<li role="presentation" class="active">
  							<a href="#mb-weibo" aria-control="mb-weibo" role="tab" data-toggle="tab">微博</a>
@@ -110,7 +110,19 @@
 
 				<!-- 文章标签 -->
 				<h4>标签集</h4>
-				<div>
+				<div class="mb-tags">
+					<a class="label label-default">HTML5</a>
+					<a class="label label-default">生活</a>
+					<a class="label label-default">Node.js</a>
+					<a class="label label-default">HTML5 Game</a>
+					<a class="label label-default">HTML5</a>
+					<a class="label label-default">生活</a>
+					<a class="label label-default">Node.js</a>
+					<a class="label label-default">HTML5 Game</a>
+					<a class="label label-default">HTML5</a>
+					<a class="label label-default">生活</a>
+					<a class="label label-default">Node.js</a>
+					<a class="label label-default">HTML5 Game</a>
 					<a class="label label-default">HTML5</a>
 					<a class="label label-default">生活</a>
 					<a class="label label-default">Node.js</a>
@@ -135,6 +147,6 @@
 
 	<script src="assets/jquery/jquery-1.11.1.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap-3.3.1/dist/js/bootstrap.js"></script>
 </body>
 </html>

@@ -19,7 +19,7 @@
 	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mb-collapse">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -29,9 +29,9 @@
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	    <div class="collapse navbar-collapse" id="mb-collapse" aria-expanded="false" style="height:1px">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">首页</a></li>
+	        <li class="active"><a href="#">首页</a></li>
 	        <li><a href="#">HTML5</a></li>
 	        <li><a href="#">Node.js</a></li>
 	        <li><a href="#">生活杂记</a></li>
@@ -148,13 +148,11 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 
 	<script src="assets/jquery/jquery-1.11.1.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap-3.3.1/dist/js/bootstrap.js"></script>
 	<script src="scripts/prettify.js"></script>
 	<script>
-	function prettyCode(ctn){
-	  ctn && $(ctn).find('.codearea').addClass('prettyprint');
-	  window.prettyPrint && prettyPrint();
-	};
-	prettyCode('body')</script>
-</body>
+	$('body').find('.codearea').addClass('prettyprint');
+	window.prettyPrint && prettyPrint();
+	</script>
+	</body>
 </html>

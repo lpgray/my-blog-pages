@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章编辑</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap-3.3.1/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	
+	<!-- 主导航 -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mb-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><img class="mb-avatar img-circle" src="images/avatar.jpg" alt=""> ZhangYang's Blog</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="mb-collapse" aria-expanded="false" style="height:1px">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="#">首页</a></li>
+					<li><a href="#">HTML5</a></li>
+					<li><a href="#">Node.js</a></li>
+					<li><a href="#">生活杂记</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- /主导航 -->
+	
+	<!-- 主显示区 -->
+	<div class="mb-main">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-8">
+					<div class="mb-article">
+						<div class="form-group text-right">
+							<div class="btn-group" data-toggle="buttons">
+								<label class="btn btn-default active">
+									<input type="radio" name="options" id="option1" autocomplete="off" checked> Write
+								</label>
+								<label class="btn btn-default">
+									<input type="radio" name="options" id="option2" autocomplete="off"> Preview
+								</label>
+							</div>
+						</div>
+						<form action="">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="文章标题">
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></div>
+									<input type="text"  class="form-control" placeholder="输入标签用半角逗号隔开">
+								</div>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" style="height:300px;width:100%;overflow-y:auto;" placeholder="写 Markdown 格式的文章..."></textarea>
+							</div>
+							<div class="form-group">
+								<div class="input-group" style="margin-bottom: 10px;">
+									<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+									<input type="text" class="form-control" value="Zhang Yang" disabled>
+								</div>
+							</div>
+						</form>
+						<div id="J_articlePreview">
+							
+						</div>
+						<div class="form-group text-right">
+							<div class="pull-left">
+								<small>Saving draft...</small>
+								<small class="text-success">Success!</small>
+							</div>
+							<button class="btn btn-default btn-lg">Submit</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<!--个人信息-->
+					<div role="tabpanel" class="mb-tab-panel">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a href="#mb-weibo" aria-control="mb-weibo" role="tab" data-toggle="tab">微博</a>
+							</li>
+							<li role="presentation">
+								<a href="#mb-github" aria-control="mb-github" role="tab" data-toggle="tab">Github</a>
+							</li>
+						</ul>
+						<div class="tab-content mb-tab-content">
+							<div role="tabpanel" class="tab-pane active" id="mb-weibo">
+								<a href="http://weibo.com/u/2381479703?s=6uyXnP" target="_blank"><img border="0" src="http://service.t.sina.com.cn/widget/qmd/2381479703/6463fd65/1.png"/></a>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="mb-github">
+								
+							</div>
+						</div>
+					</div>
+					<!--/个人信息-->
+
+					<!-- 文章标签 -->
+					<h4>标签集</h4>
+					<div class="mb-tags">
+						<a class="label label-default">HTML5</a>
+						<a class="label label-default">生活</a>
+						<a class="label label-default">Node.js</a>
+						<a class="label label-default">HTML5 Game</a>
+					</div>
+					<!-- /文章标签 -->
+				</div>
+
+			</div><!-- /.row -->
+		</div>
+	</div>
+	<!-- /主显示区 -->
+	
+	<footer>
+		<div class="container container-fluid text-center">
+			<p>&copy;2014 Zhang Yang. 本博客使用 <a href="https://www.djangoproject.com/" target="_blank">django</a> 开发，运行在<a href="//sae.sinaapp.com.cn" target="_blank">新浪云服务</a>上。</p>
+		</div>
+	</footer>
+
+	<script src="assets/jquery/jquery-1.11.1.min.js"></script>
+	<script src="bootstrap-3.3.1/dist/js/bootstrap.js"></script>
+</body>
+</html>
